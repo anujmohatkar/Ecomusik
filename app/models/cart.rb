@@ -3,6 +3,7 @@ class Cart < ApplicationRecord
 
   def add_instrument(instrument)
     current_item = line_items.find_by(instrument_id: instrument.id)
+
     if current_item
       current_item.increment(:quantity)
     else
@@ -11,7 +12,7 @@ class Cart < ApplicationRecord
     current_item 
   end
 
-  def totol_price
-    line_items.to_a.sum { |item| item.totol_price }
+  def total_price
+    line_items.to_a.sum { |item| item.total_price }
   end
 end
