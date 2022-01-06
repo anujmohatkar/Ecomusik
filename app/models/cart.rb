@@ -10,4 +10,8 @@ class Cart < ApplicationRecord
     end
     current_item 
   end
+
+  def totol_price
+    line_items.to_a.sum { |item| item.totol_price }
+  end
 end
